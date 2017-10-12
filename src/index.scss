@@ -1,0 +1,51 @@
+$body-grey: #666;
+$border-color: #dedede;
+$main-font: 'Helvetica';
+
+///NewArrivals
+.thumbnail {
+  .caption {
+    min-height: 70px;
+  }
+
+  .tileText {
+    font-size: 12px;
+  }
+}
+
+.subtitle {
+  text-transform: uppercase;
+  color: black;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
+
+//Nav
+.header {
+  text-align: center;
+
+  .App-logo {
+    height: 25px;
+    margin-top: 15px;
+  }
+
+  .NavSeparation {
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+
+    a {
+      color: $body-grey;
+      margin-left: 20px;
+      margin-right: 20px;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: $main-font;
+      font-weight: 300;
+    }
+  }
+}
