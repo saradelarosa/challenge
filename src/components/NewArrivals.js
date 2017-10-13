@@ -1,10 +1,25 @@
 import React, { Component } from 'react'
-import { Thumbnail, Col, Grid, Row, Button } from 'react-bootstrap'
 import { connect } from 'react-redux';
+import {withRouter} from "react-router-dom";
+import { Thumbnail, Col, Grid, Row, Button } from 'react-bootstrap'
 import { fetchProducts } from '../actions'
-import { Link } from 'react-router-dom'
 
 class NewArrivals extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      details: ''
+    };
+  }
+
+  onItemClick(product, e) {
+    console.log(product);
+    const newDetail = [];
+    newDetail.push(product);
+    this.setState({details: newDetail});
+    console.log(this.state.details, 'this is the details');
+    this.props.history.push('/productDetail')
+  }
 
   _renderObject(){
     let $products = this.props.product;
@@ -17,14 +32,18 @@ class NewArrivals extends Component {
                 <h2 className="subtitle">{value.header}</h2>
                 {
                   value.products.map((product, index) => {
+
                     const images = `https://i.s-jcrew.com/is/image/jcrew/${product.productCode}_${product.defaultColorCode}`
+                    let boundItemClick = this.onItemClick.bind(this, product);
                     return (
-                      <Col xs={6} md={4}>
-                        <Thumbnail src={images} alt="242x200">
-                          <p className="tileText">{product.productDescription}</p>
-                          <Link to="/innerpage"><Button bsStyle="primary">View Product</Button></Link>
-                        </Thumbnail>
-                      </Col>
+                        <Col xs={6} md={4}>
+                          <Thumbnail src={images} alt="242x200">
+                            <p className="tileText">{product.productDescription}</p>
+                            <Button
+                            bsStyle="primary"
+                            onClick={boundItemClick}>View Product</Button>
+                          </Thumbnail>
+                        </Col>
                     )
                   })
                 }
@@ -39,7 +58,6 @@ class NewArrivals extends Component {
 	}
 
   render() {
-    console.log(this.props.product, 'this is the product!!!')
     return (
       <div className="App">
         {this._renderObject()}
@@ -54,4 +72,4 @@ const mapStateToProps = ({product}) => {
   }
 }
 
-export default connect(mapStateToProps, { fetchProducts })(NewArrivals);
+export default withRouter(connect(mapStateToProps, { fetchProducts })(NewArrivals));

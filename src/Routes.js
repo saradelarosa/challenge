@@ -9,27 +9,26 @@ import Men from './components/Men.js'
 import Girls from './components/Girls.js'
 import Boys from './components/Boys.js'
 
-//Inner Product Page
-import InnerPage from './components/InnerPage.js';
+import ProductDetail from './components/ProductDetail.js'
 
 const Routes = () => (
   <div>
     <header className="header">
       <Link to="/"><img src={logo} className="App-logo" alt="logo" /></Link>
       <div className="NavSeparation">
-        <Link to="/women">women</Link>
-        <Link to="/men">men</Link>
-        <Link to="/girls">girls</Link>
-        <Link to="/boys">boys</Link>
+        <Link to="/c/womens_feature/newarrivals">women</Link>
+        <Link to="/c/mens_feature/newarrivals">men</Link>
+        <Link to="/c/girls_feature/newarrivals">girls</Link>
+        <Link to="/c/boys_feature/newarrivals">boys</Link>
       </div>
     </header>
     <main>
       <Route exact path="/" component={App} />
-      <Route exact path="/women" component={Women} />
-      <Route exact path="/men" component={Men} />
-      <Route exact path="/girls" component={Girls} />
-      <Route exact path="/boys" component={Boys} />
-      <Route exact path="/innerpage" component={InnerPage} />
+      <Route exact path="/c/womens_feature/newarrivals" component={Women} />
+      <Route exact path="/c/mens_feature/newarrivals" component={Men} />
+      <Route exact path="/c/girls_feature/newarrivals" component={Girls} />
+      <Route exact path="/c/boys_feature/newarrivals" component={Boys} />
+      <Route exact path="/productDetail" component={ProductDetail} />
     </main>
   </div>
 )

@@ -15,10 +15,6 @@ class Girls extends Component {
     this.props.fetchProducts(this.state.gender);
   }
 
-  componentDidMount() {
-    this.props.product ? null : this.props.fetchProducts(this.state.gender);
-  }
-
   shouldComponentUpdate(nextProps, nextState) {
       return true;
   }
