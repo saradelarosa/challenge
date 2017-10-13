@@ -14,10 +14,6 @@ class NewArrivals extends Component {
 
   onItemClick(product, e) {
     console.log(product);
-    const newDetail = [];
-    newDetail.push(product);
-    this.setState({details: newDetail});
-    console.log(this.state.details, 'this is the details');
     this.props.history.push('/productDetail')
   }
 
